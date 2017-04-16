@@ -1,0 +1,63 @@
+import path from "path";
+import {clean} from "node-xss";
+import {Server} from "http";
+import Express from "express";
+import bodyParser from "body-parser";
+import React from "react";
+import {renderToString} from "react-dom/server";
+import {StaticRouter} from "react-router";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+
+
+
+//Configure express server
+const app = new Express();
+const server = new Server(app);
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded(({extended:true})));
+
+//Set up static folder
+app.use(Express.static(path.join(__dirname, "static")));
+
+//Handle API requests
+import handleDataRequest from "./data/handleDataRequest.js";
+app.post("/data/*", handleDataRequest);
+
+
+
+//Routing and rendering
+import App from "./App";
+import {combinedReducer} from "./combinedReducer";
+
+app.get("*", (req, res, next) => {
+    //Create redux store
+    const store = createStore(combinedReducer);
+
+    //Render HTML
+    const context = {};
+    const reactMarkup = renderToString(
+        <Provider store={store}>
+            <StaticRouter location={req.url} context={context}>
+                <App/>
+            </StaticRouter>
+        </Provider>
+    );
+
+    const preloadedState = store.getState();
+
+    res.render("index", {reactMarkup: reactMarkup, preloadedState: JSON.stringify(clean(preloadedState))});
+    next();
+});
+
+//Start the server
+const port = process.env.PORT || 3000;
+const env = process.env.NODE_ENV || "production";
+server.listen(port, err => {
+    if(err){
+        return console.error(err);
+    }
+    console.info("Server running on http://localhost:" + port);
+});

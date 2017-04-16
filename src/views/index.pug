@@ -1,0 +1,12 @@
+doctype html
+html(lang="sv")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Päron lagerhantering
+        link(rel="stylesheet" type="text/css" href="/styles/main.css")
+    body
+        #app= reactMarkup
+        script.
+            window.__PRELOADED_STATE__ = !{preloadedState};
+        script(src="/js/bundle.js")
