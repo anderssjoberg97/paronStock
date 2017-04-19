@@ -1,0 +1,57 @@
+@import "../../common/styles/base/colors";
+@import "../../common/styles/mixins/border-radius";
+
+.registerDeliveryButton {
+    display: inline-block;
+    width: 180px;
+    padding: 18px 9px; margin-bottom: 24px;
+    background-color:$primaryLightColor;
+    @include border-radius(3px);
+    font-size: 18px; color: #fff;
+    &:hover{
+        cursor:pointer;
+    }
+}
+
+.deliveriesTableHeaders{
+    display: flex; flex-direction: row;
+    height: 36px; padding: 6px 48px;
+    background-color:#555;
+    color:#fff;
+
+    > div > span {
+        display:block;
+        padding-top: 8px;
+    }
+    > div{
+        width: 100px;
+    }
+    > .productIdentifiers {
+        flex-grow: 2;
+    }
+}
+
+.deliveriesTable {
+    background-color:#fff;
+
+    > .delivery {
+        display: flex; flex-direction: row;
+        width: auto; height: 48px;
+        padding: 6px 48px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background-color:$primaryLightColor;
+        }
+        > div {
+            width: 100px;
+        }
+        > div > span {
+            display:block;
+            padding-top: 14px;
+        }
+        > .productIdentifiers {
+            flex-grow: 2;
+        }
+    }
+}

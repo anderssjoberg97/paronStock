@@ -1,25 +1,28 @@
 /**
- * Handles warehouses data requests
+ * Handles warehouse data requests
  */
-export default function handleProductRequest(req, connection){
+export default function handleWarehouseRequest(req, res, next, connection){
     switch (req.body.action){
         case("get"): {
-            getWarehouses(req, connection);
+            getWarehouseData(req, res, next, connection);
+            break;
         } default: {
+            res.json({});
             break;
         }
     }
 }
 
 /**
- * Gets product records from the database
+ * Gets warehouse info from the database
  */
-export function getWarhouses(req, connection){
+export function getWarehouseData(req, res, next, connection){
     let queryStr = "select * from warehouses";
     connection.query(queryStr, (err, results, fields) => {
         if (err){
             throw err;
         }
         res.json(results);
+        next();
     })
 }

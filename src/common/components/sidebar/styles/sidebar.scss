@@ -1,0 +1,54 @@
+@import "../../../styles/base/colors";
+@import "../../../styles/mixins/box-shadow";
+
+.sidebar {
+    position: relative; z-index: 6;
+    width: 0px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    @include box-shadow(0, 0, 5px, 5px, rgba(0, 0, 0, 0.1));
+    overflow: hidden;
+    background-color:#fff;
+
+    > ul{
+        display: block; width: auto;
+        margin: 18px 0 18px 0;
+
+        > li {
+            display: block;
+            width: auto;
+
+            > a {
+                display: block;
+                width: auto; height: 18px; margin: 0;
+                padding: 8px 24px;
+                font-size: 16px;
+
+                &:hover{
+                    color: #fff;
+                    background-color: $primaryLightColor;
+                }
+            }
+            > ul {
+                margin: -8px 24px 0 48px; font-size: 14px;
+
+                > li {
+                    margin: 8px 0;
+                    > a {
+
+                        &:hover {
+                            color: $primaryLightColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    a {
+        text-decoration: none; color: $darkText;
+    }
+
+    &.sidebarExpanded{
+        width: 240px; min-width: 240px;
+    }
+}

@@ -1,0 +1,697 @@
+.prompt {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.prompt.displayPrompt {
+  display: block;
+}
+
+.prompt > .promptWindow {
+  position: relative;
+  width: 640px;
+  margin: 200px auto 0 auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.prompt > .promptWindow > .promptBar {
+  margin: 0 24px 24px 24px;
+  padding: 24px 0 12px 0;
+  border-bottom: 2px solid #89c9e6;
+}
+
+.prompt > .promptWindow > .promptBar > h3 {
+  font-size: 36px;
+}
+
+.prompt > .promptWindow > .promptBar > div {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.appBar {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 5;
+  width: auto;
+  height: 48px;
+  min-height: 48px;
+  background-color: #555;
+}
+
+.appBar > .expandSidebarButton {
+  width: 48px;
+  height: 48px;
+  background-image: url("/images/layout/icons/menu.svg");
+  background-size: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.appBar > .expandSidebarButton:hover {
+  cursor: pointer;
+}
+
+.appBar > .appBarHeader {
+  flex-grow: 1;
+  margin-top: 14px;
+  text-align: center;
+  font-style: italic;
+  font-weight: 700;
+  color: #fff;
+}
+
+.appBar > .appBarNotifications {
+  width: 48px;
+}
+
+.sidebar {
+  position: relative;
+  z-index: 6;
+  width: 0px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.sidebar > ul {
+  display: block;
+  width: auto;
+  margin: 18px 0 18px 0;
+}
+
+.sidebar > ul > li {
+  display: block;
+  width: auto;
+}
+
+.sidebar > ul > li > a {
+  display: block;
+  width: auto;
+  height: 18px;
+  margin: 0;
+  padding: 8px 24px;
+  font-size: 16px;
+}
+
+.sidebar > ul > li > a:hover {
+  color: #fff;
+  background-color: #89c9e6;
+}
+
+.sidebar > ul > li > ul {
+  margin: -8px 24px 0 48px;
+  font-size: 14px;
+}
+
+.sidebar > ul > li > ul > li {
+  margin: 8px 0;
+}
+
+.sidebar > ul > li > ul > li > a:hover {
+  color: #89c9e6;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.sidebar.sidebarExpanded {
+  width: 240px;
+  min-width: 240px;
+}
+
+.stockTableHeaders {
+  display: flex;
+  flex-direction: row;
+  height: 36px;
+  padding: 6px 48px;
+  background-color: #555;
+  color: #fff;
+}
+
+.stockTableHeaders > div > span {
+  display: block;
+  padding-top: 8px;
+}
+
+.stockTableHeaders > .productIdentifiers {
+  flex-grow: 2;
+}
+
+.stockTableHeaders > .productPrice {
+  width: 100px;
+}
+
+.stockTableHeaders > .stock {
+  width: 100px;
+}
+
+.stockTable {
+  background-color: #fff;
+}
+
+.stockTable > .stockEntry {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 48px;
+  padding: 6px 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stockTable > .stockEntry:hover {
+  background-color: #89c9e6;
+}
+
+.stockTable > .stockEntry > div > span {
+  display: block;
+  padding-top: 14px;
+}
+
+.stockTable > .stockEntry > .productIdentifiers {
+  flex-grow: 2;
+}
+
+.stockTable > .stockEntry > .productPrice {
+  width: 100px;
+}
+
+.stockTable > .stockEntry > .stock {
+  position: relative;
+  width: 100px;
+}
+
+.stockTable > .stockEntry > .stock > .warehouseStock {
+  display: none;
+  z-index: 3;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 150px;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.stockTable > .stockEntry > .stock > .warehouseStock > li {
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.stockTable > .stockEntry > .stock > .warehouseStock > span {
+  font-size: 12px;
+}
+
+.stockTable > .stockEntry > .stock:hover > .warehouseStock {
+  display: block;
+}
+
+.datePicker {
+  position: relative;
+  z-index: 5;
+  width: 160px;
+}
+
+.datePicker > .calendarHover {
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+}
+
+.datePicker > .calendarHover > .selectedDate {
+  position: relative;
+  padding: 11px 24px 0 24px;
+  font-size: 14px;
+  flex-grow: 1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.datePicker > .calendarHover > .dropdownArrow {
+  width: 12px;
+  height: 12px;
+  margin: 22px 24px 0 0;
+}
+
+.datePicker > .calendarHover:hover {
+  cursor: pointer;
+  background-color: #999;
+}
+
+.datePicker .dropDownCalendar {
+  position: absolute;
+  top: 54px;
+  left: -1px;
+  width: 340px;
+  border: 1px solid #e9e9e9;
+  padding-bottom: 26px;
+  background-color: #fff;
+}
+
+.datePicker .dropDownCalendar > .calendarSkipMonth {
+  display: inline-block;
+  vertical-align: top;
+  width: 90px;
+  height: 72px;
+}
+
+.datePicker .dropDownCalendar > .calendarSkipMonth > div {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 12px auto;
+  background-size: 18px 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.datePicker .dropDownCalendar > .calendarSkipMonthValid > div:hover {
+  background-color: #e9e9e9;
+  cursor: pointer;
+}
+
+.datePicker .dropDownCalendar > .calendarHeader {
+  display: inline-block;
+  vertical-align: top;
+  width: 160px;
+  text-align: center;
+}
+
+.datePicker .dropDownCalendar > .calendarHeader > .calendarMonth {
+  display: block;
+  margin-top: 18px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.datePicker .dropDownCalendar > .calendarHeader > .calendarYear {
+  display: block;
+  margin: 6px 0 18px 0;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+}
+
+.datePicker .dropDownCalendar .calendarWeekDayNames {
+  margin: 0 0 0 26px;
+}
+
+.datePicker .dropDownCalendar .calendarWeekDayNames > div {
+  display: inline-block;
+  vertical-align: top;
+  width: 40px;
+  height: 20px;
+  margin: -1px 0 0 -1px;
+  border: 1px solid #fff;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.datePicker .dropDownCalendar .calendarWeek {
+  margin: 0 0 0 26px;
+}
+
+.datePicker .dropDownCalendar .calendarDate {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 40px;
+  height: 40px;
+  margin: -1px 0 0 -1px;
+  border: 1px solid #e9e9e9;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+}
+
+.datePicker .dropDownCalendar .calendarDate span {
+  padding-top: 13px;
+  display: block;
+}
+
+.datePicker .dropDownCalendar .calendarDate:hover {
+  cursor: default;
+}
+
+.datePicker .dropDownCalendar .emptyCalendarDate {
+  border: 1px solid transparent;
+}
+
+.datePicker .dropDownCalendar .validCalendarDate {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.datePicker .dropDownCalendar .validCalendarDate:hover {
+  background-color: #e9e9e9;
+  cursor: pointer;
+}
+
+.datePicker .dropDownCalendar .currentCalendarDate {
+  background-color: #89c9e6;
+  color: #fff;
+}
+
+.datePicker .dropDownCalendar .currentCalendarDate:hover {
+  background-color: #89c9e6;
+}
+
+.warehousePicker {
+  position: relative;
+  width: 200px;
+  height: 36px;
+}
+
+.warehousePicker > .currentlySelected {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.warehousePicker > .currentlySelected:hover {
+  cursor: pointer;
+}
+
+.warehousePicker > .warehouseDropDown {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  z-index: 11;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.warehousePicker > .warehouseDropDown > ul > li {
+  margin: 12px;
+}
+
+.warehousePicker > .warehouseDropDown > ul > li:hover {
+  cursor: pointer;
+}
+
+.productSearch {
+  position: relative;
+}
+
+.productSearch > .autoCompleteResults {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  z-index: 11;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.productSearch > .autoCompleteResults > .autoCompleteResult {
+  margin: 12px;
+}
+
+.productSearch > .autoCompleteResults > .autoCompleteResult:hover {
+  cursor: pointer;
+}
+
+.deliveryAmount {
+  display: flex;
+  flex-direction: row;
+}
+
+.deliveryAmount > .inOutDeliveryToggle {
+  width: 50px;
+  height: 36px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.deliveryAmount > .inOutDeliveryToggle.active {
+  color: #fff;
+  background-color: #89c9e6;
+}
+
+.registerDeliveryButton {
+  display: inline-block;
+  width: 180px;
+  padding: 18px 9px;
+  margin-bottom: 24px;
+  background-color: #89c9e6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.registerDeliveryButton:hover {
+  cursor: pointer;
+}
+
+.deliveriesTableHeaders {
+  display: flex;
+  flex-direction: row;
+  height: 36px;
+  padding: 6px 48px;
+  background-color: #555;
+  color: #fff;
+}
+
+.deliveriesTableHeaders > div > span {
+  display: block;
+  padding-top: 8px;
+}
+
+.deliveriesTableHeaders > div {
+  width: 100px;
+}
+
+.deliveriesTableHeaders > .productIdentifiers {
+  flex-grow: 2;
+}
+
+.deliveriesTable {
+  background-color: #fff;
+}
+
+.deliveriesTable > .delivery {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 48px;
+  padding: 6px 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.deliveriesTable > .delivery:hover {
+  background-color: #89c9e6;
+}
+
+.deliveriesTable > .delivery > div {
+  width: 100px;
+}
+
+.deliveriesTable > .delivery > div > span {
+  display: block;
+  padding-top: 14px;
+}
+
+.deliveriesTable > .delivery > .productIdentifiers {
+  flex-grow: 2;
+}
+
+/* Resets CSS */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body,
+#app,
+.routes {
+  height: 100%;
+  background-color: #e9e9e9;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main > .middleFrame {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+
+.main > .middleFrame > .rightFrame {
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+
+.main > .middleFrame > .rightFrame > .content {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.main > .middleFrame > .rightFrame > .content > h1 {
+  margin: 48px 0;
+}
+
+/* Default typography settings */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+h1 {
+  font-size: 72px;
+}
+

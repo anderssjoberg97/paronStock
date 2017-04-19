@@ -1,0 +1,29 @@
+.appBar {
+    display: flex; flex-direction: row;
+    position: relative; z-index: 5;
+    width: auto; height: 48px; min-height: 48px;
+    background-color:#555;
+
+    > .expandSidebarButton {
+        width: 48px; height: 48px;
+        background-image: url("/images/layout/icons/menu.svg");
+        background-size: 25px; background-position: center; background-repeat: no-repeat;
+
+        &:hover{
+            cursor:pointer;
+        }
+    }
+
+    > .appBarHeader {
+        flex-grow: 1;
+        margin-top: 14px;
+        text-align: center; font-style: italic; font-weight: 700;
+        color: #fff;
+
+    }
+
+    > .appBarNotifications {
+        width: 48px;
+    }
+
+}

@@ -1,0 +1,25 @@
+.warehousePicker{
+    position: relative;
+    width: 200px; height: 36px;
+    > .currentlySelected {
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    > .warehouseDropDown{
+        position: absolute; top: 36px; left: 0; z-index: 11;
+        width: 200px;
+        background-color:#fff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        > ul > li {
+            margin: 12px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

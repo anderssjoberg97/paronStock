@@ -9,7 +9,9 @@ export default function getDatabaseConnection(){
         host: "localhost",
         user: "root",
         password: process.env.MYSQL_PASS,
-        database: "paronStock"
+        database: "paronStock",
+        multipleStatements: true,
+        dateStrings: true
     });
 
     connection.connect(function(err){
@@ -17,8 +19,6 @@ export default function getDatabaseConnection(){
             console.error("Error connecting to MySQL " + err.stack);
             return;
         }
-
-        console.log("Connected as ID " + connection.threadId);
     });
 
     return connection;

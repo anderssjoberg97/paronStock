@@ -1,13 +1,14 @@
+import "babel-polyfill";
 import path from "path";
-import {clean} from "node-xss";
 import {Server} from "http";
 import Express from "express";
 import bodyParser from "body-parser";
 import React from "react";
 import {renderToString} from "react-dom/server";
 import {StaticRouter} from "react-router";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
+import thunkMiddleWare from "redux-thunk";
 
 
 
@@ -34,7 +35,7 @@ import {combinedReducer} from "./combinedReducer";
 
 app.get("*", (req, res, next) => {
     //Create redux store
-    const store = createStore(combinedReducer);
+    const store = createStore(combinedReducer, applyMiddleware(thunkMiddleWare));
 
     //Render HTML
     const context = {};
@@ -48,7 +49,7 @@ app.get("*", (req, res, next) => {
 
     const preloadedState = store.getState();
 
-    res.render("index", {reactMarkup: reactMarkup, preloadedState: JSON.stringify(clean(preloadedState))});
+    res.render("index", {reactMarkup: reactMarkup, preloadedState: JSON.stringify(preloadedState).replace(/</g, '\\u003c')});
     next();
 });
 

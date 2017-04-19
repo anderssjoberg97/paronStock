@@ -1,0 +1,32 @@
+@import "../../../styles/base/colors";
+@import "../../../styles/mixins/box-shadow";
+
+.prompt {
+    display: none;
+    position:fixed; left: 0; top: 0; z-index: 10;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    &.displayPrompt {
+        display: block;
+    }
+    > .promptWindow {
+        position: relative;
+        width: 640px;
+        margin: 200px auto 0 auto;
+        background-color:#fff;
+        @include box-shadow(0, 0, 5px, 5px, rgba(0, 0, 0, 0.1));
+
+        > .promptBar{
+            margin: 0 24px 24px 24px; padding: 24px 0 12px 0;
+            border-bottom: 2px solid $primaryLightColor;
+            > h3 {
+                font-size: 36px;
+            }
+
+            > div {
+                position: absolute; top: 24px; right: 24px;
+            }
+        }
+    }
+}
