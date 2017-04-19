@@ -36,7 +36,7 @@ export default class DeliveryAmount extends React.Component{
     render(){
         return (
             <div className="deliveryAmount">
-                <div>
+                <div className="inputContainer">
                     <input
                         type="text"
                         value={this.state.amountText}

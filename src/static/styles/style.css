@@ -81,9 +81,6 @@
   z-index: 6;
   width: 0px;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   background-color: #fff;
 }
@@ -222,13 +219,85 @@
   display: block;
 }
 
+.addProductButton {
+  display: inline-block;
+  width: 180px;
+  padding: 18px 9px;
+  margin-bottom: 24px;
+  background-color: #89c9e6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.addProductButton:hover {
+  cursor: pointer;
+}
+
+.productsTableHeaders {
+  display: flex;
+  flex-direction: row;
+  height: 36px;
+  padding: 6px 48px;
+  background-color: #555;
+  color: #fff;
+}
+
+.productsTableHeaders > div > span {
+  display: block;
+  padding-top: 8px;
+}
+
+.productsTableHeaders > .productIdentifiers {
+  flex-grow: 2;
+}
+
+.productsTableHeaders > .productPrice {
+  width: 100px;
+}
+
+.productsTable {
+  background-color: #fff;
+}
+
+.productsTable > .product {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 48px;
+  padding: 6px 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.productsTable > .product:hover {
+  background-color: #89c9e6;
+}
+
+.productsTable > .product > div > span {
+  display: block;
+  padding-top: 14px;
+}
+
+.productsTable > .product > .productIdentifiers {
+  flex-grow: 2;
+}
+
+.productsTable > .product > .productPrice {
+  width: 100px;
+}
+
 .datePicker {
   position: relative;
   z-index: 5;
-  width: 160px;
+  width: 200px;
+  margin: 24px 48px;
 }
 
 .datePicker > .calendarHover {
+  width: 200px;
   height: 36px;
   display: flex;
   flex-direction: row;
@@ -237,7 +306,7 @@
 .datePicker > .calendarHover > .selectedDate {
   position: relative;
   padding: 11px 24px 0 24px;
-  font-size: 14px;
+  font-size: 16px;
   flex-grow: 1;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -378,6 +447,7 @@
   position: relative;
   width: 200px;
   height: 36px;
+  margin: 24px 48px;
 }
 
 .warehousePicker > .currentlySelected {
@@ -409,6 +479,16 @@
 
 .productSearch {
   position: relative;
+  width: 200px;
+  height: 36px;
+  margin: 24px 48px;
+}
+
+.productSearch > input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 36px;
+  font-size: 16px;
 }
 
 .productSearch > .autoCompleteResults {
@@ -432,6 +512,21 @@
 .deliveryAmount {
   display: flex;
   flex-direction: row;
+  width: 300px;
+  height: 36px;
+  margin: 24px 48px;
+}
+
+.deliveryAmount > .inputContainer {
+  width: 200px;
+  height: 36px;
+}
+
+.deliveryAmount > .inputContainer > input {
+  width: 200px;
+  height: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 16px;
 }
 
 .deliveryAmount > .inOutDeliveryToggle {
@@ -461,6 +556,10 @@
 
 .registerDeliveryButton:hover {
   cursor: pointer;
+}
+
+.prompt .registerDeliveryButton {
+  margin: 24px 48px;
 }
 
 .deliveriesTableHeaders {
@@ -678,6 +777,12 @@ body,
 .main > .middleFrame > .rightFrame > .content {
   width: 960px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 960px) {
+  .main > .middleFrame > .rightFrame > .content {
+    width: 100%;
+  }
 }
 
 .main > .middleFrame > .rightFrame > .content > h1 {

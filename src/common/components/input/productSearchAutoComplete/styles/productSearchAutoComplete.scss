@@ -1,5 +1,14 @@
 .productSearch{
     position: relative;
+    width: 200px; height:36px;
+    margin: 24px 48px;
+
+    > input {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        width: 200px; height: 36px;
+        font-size: 16px;
+    }
+
     > .autoCompleteResults{
         position: absolute; top: 36px; left: 0; z-index: 11;
         width: 200px;

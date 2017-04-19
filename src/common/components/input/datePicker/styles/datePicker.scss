@@ -3,23 +3,24 @@
 
 .datePicker{
     position:relative;z-index:5;
-    width: 160px;
+    width: 200px;
+    margin: 24px 48px;
 
 
     > .calendarHover{
-        height: 36px;
+        width: 200px; height: 36px;
         display: flex; flex-direction: row;
         > .selectedDate{
             position:relative;
             padding:11px 24px 0 24px;
-            font-size:14px;
+            font-size:16px;
             flex-grow:1;
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         > .dropdownArrow {
             width:12px; height: 12px; margin: 22px 24px 0 0;
-            //background-image: url('../../../../common/images/icons/down.png'); background-size: 12px 12px;
+            //background-image: url('../../../../../static/images/icons/down.png'); background-size: 12px 12px;
         }
         &:hover{
             cursor: pointer; background-color:#999;

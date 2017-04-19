@@ -1,7 +1,7 @@
 @import "../../common/styles/base/colors";
 @import "../../common/styles/mixins/border-radius";
 
-.registerDeliveryButton {
+.addProductButton {
     display: inline-block;
     width: 180px;
     padding: 18px 9px; margin-bottom: 24px;
@@ -13,11 +13,7 @@
     }
 }
 
-.prompt .registerDeliveryButton {
-    margin: 24px 48px;
-}
-
-.deliveriesTableHeaders{
+.productsTableHeaders{
     display: flex; flex-direction: row;
     height: 36px; padding: 6px 48px;
     background-color:#555;
@@ -27,18 +23,19 @@
         display:block;
         padding-top: 8px;
     }
-    > div{
-        width: 100px;
-    }
     > .productIdentifiers {
         flex-grow: 2;
     }
+
+    > .productPrice {
+        width: 100px;
+    }
 }
 
-.deliveriesTable {
+.productsTable {
     background-color:#fff;
 
-    > .delivery {
+    > .product {
         display: flex; flex-direction: row;
         width: auto; height: 48px;
         padding: 6px 48px;
@@ -47,15 +44,18 @@
         &:hover {
             background-color:$primaryLightColor;
         }
-        > div {
-            width: 100px;
-        }
+
         > div > span {
             display:block;
             padding-top: 14px;
         }
+
         > .productIdentifiers {
             flex-grow: 2;
+        }
+
+        > .productPrice {
+            width: 100px;
         }
     }
 }
